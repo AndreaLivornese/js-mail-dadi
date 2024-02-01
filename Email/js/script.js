@@ -34,7 +34,7 @@ buttonCheckElement.addEventListener("click",
         if(flag == true){
             resultElement.innerText="La email inserita è presente nella lista";
         }else{
-            resultElement.innerText+="La email inserita non è presente nella lista";
+            resultElement.innerText="La email inserita non è presente nella lista";
             choiceElement.className="active";
         }
 
@@ -47,10 +47,28 @@ buttonCheckElement.addEventListener("click",
 
 btnYesElement.addEventListener("click", 
     function(){
-        const userEmail = document.querySelector("#email").value;
+        const userEmail = document.querySelector("#email");
 
-        emails.push(userEmail);
+        // aggiunta della email nell'array
+        emails.push(userEmail.value);
         alert("email aggiunta con successo");
+
+        // pulizia della casella di testo
+        userEmail.value="";
+        choiceElement.className="";
+    }
+)
+
+
+btnNoElement.addEventListener("click", 
+    function(){
+
+        const userEmail = document.querySelector("#email");
+
+        // pulizia della casella di testo
+        userEmail.value="";
+
+        // collasso dello span 
         choiceElement.className="";
     }
 )
