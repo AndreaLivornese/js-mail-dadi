@@ -5,30 +5,52 @@
 
 
 
-const buttonElement = document.querySelector("#btn");
+const buttonCheckElement = document.querySelector("#btn");
 const resultElement = document.querySelector("#result");
+const choiceElement = document.querySelector("span");
+
+console.log(choiceElement);
+
+const btnYesElement = document.querySelector("#btn-yes");
+const btnNoElement = document.querySelector("#btn-no");
+
 
 let emails = ["gigorobo@gmail.com", "castoromonco@vichingo.qualcosa", "windowsmegliodiapple@verita.eu"]; 
 
-buttonElement.addEventListener("click",
+buttonCheckElement.addEventListener("click",
     function(){
         // valore inserito nella casella di testo
         const userEmail = document.querySelector("#email").value;
         let flag=false;
 
+        // controllo presenza email nell'array
         for(let i=0; i < emails.length; i++){
             if(userEmail == emails[i]){
                 flag=true;
             }
         }
 
+        // output
         if(flag == true){
             resultElement.innerText="La email inserita è presente nella lista";
         }else{
-            resultElement.innerText="La email inserita non è presente nella lista";
+            resultElement.innerText+="La email inserita non è presente nella lista";
+            choiceElement.className="active";
         }
 
 
 
+    }
+)
+
+
+
+btnYesElement.addEventListener("click", 
+    function(){
+        const userEmail = document.querySelector("#email").value;
+
+        emails.push(userEmail);
+        alert("email aggiunta con successo");
+        choiceElement.className="";
     }
 )

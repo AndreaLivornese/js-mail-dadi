@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family:sans-serif;
+
+    padding:100px;
+}
+
+span{
+    display: none;
+    color:red
+}
+
+.active{
+    display: inline;
+}
